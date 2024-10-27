@@ -9,6 +9,7 @@ class LivroController extends Controller
 {
     public function index()
     {
+        \Log::info('Rota de index de livros acessada');
         $livros = Livro::paginate(10);
         return view('livros.index', compact('livros'));
     }

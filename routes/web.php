@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\LivroController;
+use App\Http\Controllers\EmprestimoController;
+
 
 
 Route::get('/', function () {
@@ -21,6 +23,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('alunos', AlunoController::class);
     Route::resource('livros', LivroController::class);
+    Route::resource('emprestimos', EmprestimoController::class);
+
+    Route::post('emprestimos/{emprestimo}/devolver', [EmprestimoController::class, 'devolver'])->name('emprestimos.devolver');
 
 
 });
